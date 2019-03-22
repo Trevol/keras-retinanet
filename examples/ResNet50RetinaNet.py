@@ -58,43 +58,179 @@ labels_to_names = {0: 'person', 1: 'bicycle', 2: 'car', 3: 'motorcycle', 4: 'air
                    73: 'book', 74: 'clock', 75: 'vase', 76: 'scissors', 77: 'teddy bear', 78: 'hair drier',
                    79: 'toothbrush'}
 
-# cell 3
-# load image
-# image = read_image_bgr('000000008021.jpg')
-# image = read_image_bgr('dog.jpg')
-image = read_image_bgr('eagle.jpg')
 
-# copy to draw on
-draw = image.copy()
-draw = cv2.cvtColor(draw, cv2.COLOR_BGR2RGB)
+def randomUint8Batch(shape):
+    return np.random.random_integers(0, 255, shape).astype(np.uint8)
 
-# preprocess image for network
-image = preprocess_image(image)
-image, scale = resize_image(image)
 
-# process image
-start = time.time()
-boxes, scores, labels = model.predict_on_batch(np.expand_dims(image, axis=0))
-print("processing time: ", time.time() - start)
+def blackUint8Batch(shape):
+    return np.zeros(shape, np.uint8)
 
-# correct for image scale
-boxes /= scale
 
-# visualize detections
-for box, score, label in zip(boxes[0], scores[0], labels[0]):
-    # scores are sorted so we can break
-    if score < 0.5:
-        break
+def realImageBatch(file, batchLen):
+    return np.array([read_image_bgr(file) for _ in range(batchLen)])
 
-    color = label_color(label)
 
-    b = box.astype(int)
-    draw_box(draw, b, color=color)
+def preprocessBatch(batch):
+    return preprocess_image(batch)
 
-    caption = "{} {:.3f}".format(labels_to_names[label], score)
-    draw_caption(draw, b, caption)
 
-plt.figure(figsize=(15, 15))
-plt.axis('off')
-plt.imshow(draw)
-plt.show()
+def predict_on_batch():
+    batchShape = [32, 600, 800, 3]
+
+    batch = preprocessBatch(blackUint8Batch(batchShape))
+    # warmup
+    t0 = time.time()
+    boxes, scores, labels = model.predict_on_batch(batch)
+    print(time.time() - t0)
+    print('WARMUP ENDED!')
+
+    t0 = time.time()
+    boxes, scores, labels = model.predict_on_batch(batch)
+    print(time.time() - t0)
+
+    t0 = time.time()
+    boxes, scores, labels = model.predict_on_batch(batch)
+    print(time.time() - t0)
+
+    # ---------------------------------------
+    batch = preprocessBatch(randomUint8Batch(batchShape))
+    # warmup
+    t0 = time.time()
+    boxes, scores, labels = model.predict_on_batch(batch)
+    print(time.time() - t0)
+
+    t0 = time.time()
+    boxes, scores, labels = model.predict_on_batch(batch)
+    print(time.time() - t0)
+
+    # ---------------------------------------
+    batch = preprocessBatch(realImageBatch('000000008021.jpg', batchShape[0]))
+    # warmup
+    t0 = time.time()
+    boxes, scores, labels = model.predict_on_batch(batch)
+    print(time.time() - t0)
+
+    t0 = time.time()
+    boxes, scores, labels = model.predict_on_batch(batch)
+    print(time.time() - t0)
+
+    t0 = time.time()
+    boxes, scores, labels = model.predict_on_batch(batch)
+    print(time.time() - t0)
+
+    print('--------------------------')
+    for batchNum, (bb, ss, ll) in enumerate(zip(boxes, scores, labels)):
+        for b, s, l in zip(bb, ss, ll):
+            if s < 0.5:
+                continue
+            print(batchNum, l, labels_to_names[l], s, b)
+
+    # ---------------------------------------
+    batch = realImageBatch('000000008021.jpg', batchShape[0])
+    # warmup
+    boxes, scores, labels = model.predict_on_batch(batch)
+
+    print('--------------------------')
+    for batchNum, (bb, ss, ll) in enumerate(zip(boxes, scores, labels)):
+        for b, s, l in zip(bb, ss, ll):
+            if s < 0.5:
+                continue
+            print(batchNum, l, labels_to_names[l], s, b)
+
+    return
+    # warmup detector
+    # image = read_image_bgr(imageFiles[0])
+    # image = preprocess_image(image)
+    # image, scale = resize_image(image)
+    # boxes, scores, labels = model.predict_on_batch(np.expand_dims(image, axis=0))
+
+    for imageFile in imageFiles:
+        image = read_image_bgr(imageFile)
+
+        image = preprocess_image(image)
+        image, scale = resize_image(image, min_side=800 // 2.5, max_side=1333 // 2.5)
+        print(image.shape, image.dtype)
+
+        start = time.time()
+        boxes, scores, labels = model.predict_on_batch(np.expand_dims(image, axis=0))
+        processingTime = time.time() - start
+        print(f'PROC_TIME:  {processingTime}')
+
+
+def predict_on_images():
+    imageFiles = ['000000008021.jpg', 'dog.jpg', 'eagle.jpg', 'giraffe.jpg', 'horses.jpg', 'kite.jpg', 'person.jpg',
+                  'scream.jpg']
+
+    image = read_image_bgr(imageFiles[0])
+    image = preprocess_image(image)
+    image, scale = resize_image(image)
+    boxes, scores, labels = model.predict_on_batch(np.expand_dims(image, axis=0))
+
+    for imageFile in imageFiles:
+        # load image
+        image = read_image_bgr(imageFile)
+
+        # copy to draw on
+        # preprocess image for network
+        image = preprocess_image(image)
+        image, scale = resize_image(image, min_side=800 // 2.5, max_side=1333 // 2.5)
+
+        # process image
+        start = time.time()
+        boxes, scores, labels = model.predict_on_batch(np.expand_dims(image, axis=0))
+        processingTime = time.time() - start
+
+        print(f"{imageFile} processing time: {processingTime}")
+        results = [(s, l) for b, s, l in zip(boxes[0], scores[0], labels[0]) if s >= 0.5]
+        results.sort(key=lambda item: item[1])
+        print(f'  {results}')
+
+
+def predict_on_image():
+    image = read_image_bgr('000000008021.jpg')
+    # image = read_image_bgr('dog.jpg')
+    # image = read_image_bgr('eagle.jpg')
+    # image = read_image_bgr('kite.jpg')
+
+    # image = cv2.cvtColor(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), cv2.COLOR_GRAY2BGR)
+
+    # copy to draw on
+    draw = image.copy()
+    draw = cv2.cvtColor(draw, cv2.COLOR_BGR2RGB)
+
+    # preprocess image for network
+    image = preprocess_image(image)
+    image, scale = resize_image(image)
+
+    # process image
+    start = time.time()
+    boxes, scores, labels = model.predict_on_batch(np.expand_dims(image, axis=0))
+    print("processing time: ", time.time() - start)
+
+    # correct for image scale
+    boxes /= scale
+
+    # visualize detections
+    for box, score, label in zip(boxes[0], scores[0], labels[0]):
+        # scores are sorted so we can break
+        if score < 0.5:
+            break
+
+        color = label_color(label)
+
+        b = box.astype(int)
+        draw_box(draw, b, color=color)
+
+        caption = "{} {:.3f}".format(labels_to_names[label], score)
+        draw_caption(draw, b, caption)
+
+    plt.figure(figsize=(15, 15))
+    plt.axis('off')
+    plt.imshow(draw)
+    plt.show()
+
+
+# predict_on_batch()
+# predict_on_images()
+predict_on_image()
