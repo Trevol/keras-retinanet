@@ -1,24 +1,24 @@
 import numpy as np
-import skimage.draw
+
 import cv2
 import os
 import io
 import sys
 from keras_retinanet.bin.train import main as trainRetina
-
-
-def randomShapes():
-    return skimage.draw.random_shapes((768, 1024), max_shapes=40, min_size=30, max_size=60,
-                                      intensity_range=((100, 255),))
+from .random_shapes import randomShapes
 
 
 def generateDataset(dir, filesNum):
+    imgShape = (768, 1024)
     classNames = set()
     annotationsFileName = os.path.join(dir, 'annotations.csv')
     with open(annotationsFileName, 'w') as annotationsFile:
-        # TODO: are we needed empty file (without objects)
+        emptyFile = 'empty.jpg'
+        cv2.imwrite(os.path.join(dir, emptyFile), np.full([*imgShape, 3], 255, np.uint8))
+        annotationsFile.write(f'{emptyFile},,,,,\n')
+
         for i in range(filesNum):
-            img, annotations = randomShapes()
+            img, annotations = randomShapes(imgShape)
             imageFile = f'{i + 1}.jpg'
             if len(annotations) == 0:
                 annotationsFile.write(f'{imageFile},,,,,\n')
@@ -47,7 +47,7 @@ def generateDatasets():
 
 def train(trainAnnotationsFile, classMappingFile, valAnnotationFile=None, batchSize=2,
           snapshot=None,
-          weights =None,
+          weights=None,
           randomTransform=False):
     args = ['--workers=0',
             f'--batch-size={batchSize}']
@@ -69,15 +69,15 @@ def train(trainAnnotationsFile, classMappingFile, valAnnotationFile=None, batchS
 
 
 def main():
-    #TODO: add noise
-    #TODO: add ellipses
+    # TODO: add noise
+    # TODO: add ellipses
 
     # trainAnnotations, valAnnotations, classMapping = generateDatasets()
     trainAnnotations, valAnnotations, classMapping = 'dataset/train/annotations.csv', 'dataset/val/annotations.csv', 'dataset/class_mapping.csv'
 
     ret = train(trainAnnotations, classMapping, valAnnotations, batchSize=2,
-                snapshot=None, #'./snapshots/resnet50_csv_08.h5'
-                weights=None,  #'../../snapshots/resnet50_coco_best_v2.1.0.h5',
+                snapshot=None,  # './snapshots/resnet50_csv_08.h5'
+                weights=None,  # '../../snapshots/resnet50_coco_best_v2.1.0.h5',
                 randomTransform=True)
     # TODO: test ellipse detection (we train only on circles)
 

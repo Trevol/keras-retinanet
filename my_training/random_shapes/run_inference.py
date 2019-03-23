@@ -14,6 +14,7 @@ import numpy as np
 import time
 import skimage.draw
 
+from .random_shapes import randomShapes
 
 def get_session():
     config = tf.ConfigProto()
@@ -51,18 +52,13 @@ def main():
     # image, annotations = randomShapes()
     # predict_on_image(model, labels_to_names, image)
 
-    image, annotations = randomShapes()
+    image, annotations = randomShapes((768, 1024))
     # random noise
     image = np.uint8(image - 60 + np.random.randint(2, 55, image.shape))
     predict_on_image(model, labels_to_names, image)
 
     image = randomEllipses()
     predict_on_image(model, labels_to_names, image)
-
-
-def randomShapes():
-    return skimage.draw.random_shapes((768, 1024), max_shapes=40, min_size=30, max_size=60,
-                                      intensity_range=((100, 255),))
 
 
 def randomEllipses():
