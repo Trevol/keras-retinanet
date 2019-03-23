@@ -12,9 +12,8 @@ import cv2
 import os
 import numpy as np
 import time
-import skimage.draw
 
-from .random_shapes import randomShapes
+from random_shapes import randomShapes
 
 def get_session():
     config = tf.ConfigProto()
