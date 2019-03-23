@@ -4,6 +4,7 @@ import cv2
 import os
 import io
 import sys
+from keras_retinanet.bin.train import main as trainRetina
 
 
 def randomShapes():
@@ -25,7 +26,7 @@ def generateDataset(dir, filesNum):
                 annotationsFile.write(f'{imageFile},{x1},{y1},{x2},{y2},{className}\n')
                 classNames.add(className)
             cv2.imwrite(os.path.join(dir, imageFile), img)
-    return classNames, annotationsFile
+    return classNames, annotationsFileName
 
 
 def saveClassMapping(dir, classNames):
@@ -44,23 +45,40 @@ def generateDatasets():
     return trainAnnotations, valAnnotations, classMapping
 
 
-def train(trainAnnotationsFile, classMappingFile, valAnnotationFile=None):
-    from keras_retinanet.bin.train import main as trainRetina
+def train(trainAnnotationsFile, classMappingFile, valAnnotationFile=None, batchSize=2,
+          snapshot=None,
+          weights =None,
+          randomTransform=False):
     args = ['--workers=0',
-            '--weights=../../snapshots/ResNet-50-model.keras.h5',
-            'csv',
-            trainAnnotationsFile,
-            classMappingFile]
+            f'--batch-size={batchSize}']
+    if snapshot:
+        args.append(f'--snapshot={snapshot}')
+    elif weights is not None:
+        args.append(f'--weights={weights}')
+    else:
+        args.append('--weights=../../snapshots/ResNet-50-model.keras.h5')
+    if randomTransform:
+        args.append('--random-transform')
+    args.extend(['csv',
+                 trainAnnotationsFile,
+                 classMappingFile
+                 ])
     if valAnnotationFile is not None:
         args.append(f'--val-annotations={valAnnotationFile}')
     return trainRetina(args)
 
 
 def main():
+    #TODO: add noise
+    #TODO: add ellipses
+
     # trainAnnotations, valAnnotations, classMapping = generateDatasets()
     trainAnnotations, valAnnotations, classMapping = 'dataset/train/annotations.csv', 'dataset/val/annotations.csv', 'dataset/class_mapping.csv'
 
-    ret = train(trainAnnotations, classMapping, valAnnotations)
+    ret = train(trainAnnotations, classMapping, valAnnotations, batchSize=2,
+                snapshot=None, #'./snapshots/resnet50_csv_08.h5'
+                weights=None,  #'../../snapshots/resnet50_coco_best_v2.1.0.h5',
+                randomTransform=True)
     # TODO: test ellipse detection (we train only on circles)
 
 
