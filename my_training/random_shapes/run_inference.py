@@ -32,7 +32,7 @@ def main():
     # adjust this to point to your downloaded/trained model
     # models can be downloaded here: https://github.com/fizyr/keras-retinanet/releases
     # model_path = os.path.join('..', 'snapshots', 'resnet50_coco_best_v2.1.0.h5')
-    model_path = 'resnet50_random_shapes_02.h5'
+    model_path = 'resnet50_random_shapes_07_ellipses.h5'
     # load retinanet model
     model = models.load_model(model_path, backbone_name='resnet50')
 
@@ -43,21 +43,21 @@ def main():
     # print(model.summary())
 
     # load label to names mapping for visualization purposes
-    labels_to_names = {0: 'circle', 1: 'rectangle', 2: 'triangle'}
-
-    # image, annotations = randomShapes()
-    # predict_on_image(model, labels_to_names, image)
-    #
-    # image, annotations = randomShapes()
-    # predict_on_image(model, labels_to_names, image)
+    labels_to_names = {0: 'circle', 1: 'rectangle', 2: 'triangle', 3: 'ellipse'}
 
     image, annotations = randomShapes((768, 1024))
-    # random noise
-    image = np.uint8(image - 60 + np.random.randint(2, 55, image.shape))
     predict_on_image(model, labels_to_names, image)
 
-    image = randomEllipses()
+    image, annotations = randomShapes((768, 1024))
     predict_on_image(model, labels_to_names, image)
+
+    # image, annotations = randomShapes((768, 1024))
+    # # random noise
+    # image = np.uint8(image - 60 + np.random.randint(2, 55, image.shape))
+    # predict_on_image(model, labels_to_names, image)
+    #
+    # image = randomEllipses()
+    # predict_on_image(model, labels_to_names, image)
 
 
 def randomEllipses():

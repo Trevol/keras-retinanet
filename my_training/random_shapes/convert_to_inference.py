@@ -7,8 +7,8 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 def main():
     args = [
-        './snapshots/resnet50_csv_02.h5',  # model_in
-        'resnet50_random_shapes_02.h5'  # model_out
+        './snapshots/resnet50_csv_07.h5',  # model_in
+        'resnet50_random_shapes_07_ellipses.h5'  # model_out
     ]
     convertModel(args)
 
