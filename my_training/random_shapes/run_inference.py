@@ -43,7 +43,7 @@ def main():
     # print(model.summary())
 
     # load label to names mapping for visualization purposes
-    labels_to_names = {0: 'circle', 1: 'rectangle', 2: 'triangle', 3: 'ellipse'}
+    labels_to_names = {0: 'circle', 1: 'ellipse', 2: 'rectangle', 3: 'triangle'}
 
     image, annotations = randomShapes((768, 1024))
     predict_on_image(model, labels_to_names, image)
