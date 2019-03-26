@@ -13,7 +13,7 @@ import os
 import numpy as np
 import time
 
-from random_shapes import randomShapes
+from random_shapes import randomShapes, addSpacers
 
 def get_session():
     config = tf.ConfigProto()
@@ -46,18 +46,22 @@ def main():
     labels_to_names = {0: 'circle', 1: 'ellipse', 2: 'rectangle', 3: 'triangle'}
 
     image, annotations = randomShapes((768, 1024))
+    image = addSpacers(image, 200)
     predict_on_image(model, labels_to_names, image)
 
     image, annotations = randomShapes((768, 1024))
+    image = addSpacers(image, 200)
     predict_on_image(model, labels_to_names, image)
 
-    # image, annotations = randomShapes((768, 1024))
-    # # random noise
-    # image = np.uint8(image - 60 + np.random.randint(2, 55, image.shape))
-    # predict_on_image(model, labels_to_names, image)
-    #
-    # image = randomEllipses()
-    # predict_on_image(model, labels_to_names, image)
+    image, annotations = randomShapes((768, 1024))
+    image = addSpacers(image, 200)
+    # random noise
+    image = np.uint8(image - 60 + np.random.randint(2, 55, image.shape))
+    predict_on_image(model, labels_to_names, image)
+
+    image = randomEllipses()
+    image = addSpacers(image, 200)
+    predict_on_image(model, labels_to_names, image)
 
 
 def randomEllipses():

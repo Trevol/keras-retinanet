@@ -68,6 +68,26 @@ def _generate_ellipse_mask(point, image, shape, random):
 SHAPE_GENERATORS['ellipse'] = _generate_ellipse_mask
 SHAPE_CHOICES.append(_generate_ellipse_mask)
 
+
+def addSpacers(img, color=255, size=40):
+    h, w = img.shape[:2]
+    d = None
+    if len(img.shape) == 3:
+        d = img.shape[-1]
+
+    topSpacerShape = (size, w) if d is None else (size, w, d)
+    topSpacer = np.empty(topSpacerShape, img.dtype)
+    topSpacer[..., :] = color
+    img = np.vstack([topSpacer, img])
+
+    rigthSpacerShape = (h + size, size) if d is None else (h + size, size, d)
+    rigthSpacer = np.empty(rigthSpacerShape, img.dtype)
+    rigthSpacer[..., :] = color
+    img = np.hstack([img, rigthSpacer])
+
+    return img
+
+
 if __name__ == '__main__':
     import cv2
 
@@ -77,8 +97,20 @@ if __name__ == '__main__':
         img, annotations = randomShapes(imgShape)
         for className, ((y1, y2), (x1, x2)) in annotations:
             cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 0))
+
+        img = addSpacers(img, color=255)
         cv2.imshow('', img)
         cv2.waitKey()
+
+
+    def main_():
+        img = np.zeros([1, 1, 3], np.uint8)
+        img[..., :] = [3, 4, 5]
+        print(img)
+
+        img = np.zeros([2, 2], np.uint8)
+        img[..., :] = 3
+        print(img)
 
 
     main()
