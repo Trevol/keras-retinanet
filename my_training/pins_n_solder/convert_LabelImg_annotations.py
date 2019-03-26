@@ -70,8 +70,12 @@ if __name__ == '__main__':
         # TODO: prepare class mappings automatically
         # train
 
-        labelImgDir = 'D:\DiskE\Computer_Vision_Task\\frames_annotations\\annotated'
-        outputFile = '_keras_retina_annotations.csv'
+        outputFile = 'annotations.csv'
+
+        labelImgDir = './dataset/train'
+        convert(labelImgDir, outputFile, includeClasses=['pin'])
+
+        labelImgDir = './dataset/val'
         convert(labelImgDir, outputFile, includeClasses=['pin'])
 
 
