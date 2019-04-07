@@ -29,7 +29,8 @@ def main():
     # load label to names mapping for visualization purposes
     labels_to_names = {0: 'pin', 1: 'solder', 2: 'anomaly_bent_solder'}
 
-    dir = '/media/trevol/HDD/contacts/frames'
+    # dir = '/media/trevol/HDD/contacts/frames'
+    dir = 'D:/DiskE/Computer_Vision_Task/frames_6/'
     files = {
         178: 'f_0178_11866.67_11.87.jpg',
         265: 'f_0265_17666.67_17.67.jpg',
