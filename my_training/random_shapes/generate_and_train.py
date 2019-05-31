@@ -71,9 +71,8 @@ def train(trainAnnotationsFile, classMappingFile, valAnnotationFile=None, batchS
 def main():
     # TODO: add noise
     # TODO: add ellipses
-
-    trainAnnotations, valAnnotations, classMapping = generateDatasets()
-    # trainAnnotations, valAnnotations, classMapping = 'dataset/train/annotations.csv', 'dataset/val/annotations.csv', 'dataset/class_mapping.csv'
+    # trainAnnotations, valAnnotations, classMapping = generateDatasets()
+    trainAnnotations, valAnnotations, classMapping = 'dataset/train/annotations.csv', 'dataset/val/annotations.csv', 'dataset/class_mapping.csv'
 
     ret = train(trainAnnotations, classMapping, valAnnotations, batchSize=2,
                 snapshot=None,  # './snapshots/resnet50_csv_08.h5'
