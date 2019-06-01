@@ -14,7 +14,7 @@ def train(trainAnnotationsFile, classMappingFile, valAnnotationFile=None, batchS
     args = ['--workers=0',
             f'--batch-size={batchSize}',
             '--epochs=50',
-            '--steps=10',
+            '--steps=1000',
             '--snapshot-path=/mnt/HDD/keras-retinanet-pins-snapshots']
     if snapshot:
         args.append(f'--snapshot={snapshot}')
@@ -37,7 +37,7 @@ def main():
     trainAnnotations, valAnnotations, classMapping = './data/train.csv', './data/val.csv', './data/class_mapping.csv'
 
     ret = train(trainAnnotations, classMapping, valAnnotations, batchSize=2,
-                snapshot=None,  # './snapshots/resnet50_csv_08.h5'
+                snapshot='/mnt/HDD/keras-retinanet-pins-snapshots/1/resnet50_csv_42.h5',  # './snapshots/resnet50_csv_08.h5'
                 weights=None,  # '../../snapshots/resnet50_coco_best_v2.1.0.h5',
                 randomTransform=True)
 
