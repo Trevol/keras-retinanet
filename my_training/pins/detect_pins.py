@@ -20,6 +20,26 @@ def get_session():
     return tf.Session(config=config)
 
 
+class DetectionsCSVWriter:
+    def __init__(self, csvPath):
+        self.file = open(csvPath, mode='w')
+        self.rowsCount = 0
+
+    def write(self, framePos, detections):
+        box, label, score = detections
+        x1, y1, x2, y2 = box
+        row = f'{framePos},{x1},{y1},{x2},{y2},{label},{score}'
+        if self.rowsCount > 1:
+            self.file.write('\n')
+        self.file.write(row)
+
+        self.rowsCount += 1
+
+    def close(self):
+        self.file.flush()
+        self.file.close()
+
+
 def main():
     keras.backend.tensorflow_backend.set_session(get_session())
     model_path = './snapshots/inference_2_28.h5'
@@ -28,51 +48,62 @@ def main():
     # load label to names mapping for visualization purposes
     labels_to_names = {0: 'pin', 1: 'solder'}
 
-    videoSource = cv2.VideoCapture('/mnt/HDD/DiskE/Computer_Vision_Task/Video_6.mp4')
-    videoTarget = videoWriter(videoSource, '/mnt/HDD/DiskE/Computer_Vision_Task/Video_6_pins_keras_retinanet_detections.avi')
+    files = [
+        ('/mnt/HDD/DiskE/Computer_Vision_Task/Video_6.mp4',
+         '/mnt/HDD/DiskE/Computer_Vision_Task/Video_6_pins_keras_retinanet_detections.avi',
+         './data/detections_video6.csv'),
 
-    while True:
-        ret, frame = videoSource.read()
-        if not ret:
-            break
-        image = predict_on_image(model, labels_to_names, frame, thresh=0.5)
-        image = putFramePos(image, videoSource.get(cv2.CAP_PROP_POS_FRAMES))
-        # image = resize(image, .5)
-        cv2.imshow('Video', image)
-        videoTarget.write(image)
-        if cv2.waitKey(1) == 27:
-            break
-    videoSource.release()
-    videoTarget.release()
+        ('/mnt/HDD/DiskE/Computer_Vision_Task/Video_2.mp4',
+         '/mnt/HDD/DiskE/Computer_Vision_Task/Video_2_pins_keras_retinanet_detections.avi',
+         './data/detections_video2.csv')
+    ]
+
+    for sourceVideoFile, targetVideoFile, detectionsCsvFile in files:
+        videoSource = cv2.VideoCapture(sourceVideoFile)
+        videoTarget = videoWriter(videoSource, targetVideoFile)
+        csvWriter = DetectionsCSVWriter(detectionsCsvFile)
+
+        framePos = 0
+        while True:
+            ret, frame = videoSource.read()
+            if not ret:
+                break
+            image, detections = predict_on_image(model, labels_to_names, frame, thresh=0.5)
+            csvWriter.write(framePos, detections)
+            image = putFramePos(image, framePos)
+            cv2.imshow('Video', image)
+            videoTarget.write(image)
+            if cv2.waitKey(1) == 27:
+                break
+            framePos += 1
+
+        videoSource.release()
+        videoTarget.release()
+        csvWriter.close()
 
 
 def predict_on_image(model, labels_to_names, image, thresh):
-    # copy to draw on
     draw = image.copy()
-    # draw = cv2.cvtColor(draw, cv2.COLOR_BGR2RGB, dst=draw)
 
     # preprocess image for network
     image = preprocess_image(image)
     image, scale = resize_image(image)
 
-    # process image
-    start = time.time()
     boxes, scores, labels = model.predict_on_batch(np.expand_dims(image, axis=0))
-    print("processing time: ", time.time() - start)
 
     # correct for image scale
     boxes /= scale
-
+    detections = []
     # visualize detections
     for box, score, label in zip(boxes[0], scores[0], labels[0]):
         # scores are sorted so we can break
         if score < thresh:
             break
-
+        detections.append((box, label, score))
         # color = label_color(label)
         if score < 0.99:
             color = (0, 0, 255)
-        elif label == 1:
+        elif label == 1:  # solder
             color = (0, 255, 0)
         else:
             color = (0, 255, 255)
@@ -84,8 +115,7 @@ def predict_on_image(model, labels_to_names, image, thresh):
         if score < 1.0:
             draw_caption(draw, b, str(int(score * 100)), fontScale=0.7)
 
-    # return cv2.cvtColor(draw, cv2.COLOR_RGB2BGR, dst=draw)
-    return draw
+    return draw, detections
 
 
 def draw_caption(image, box, caption, fontScale=1):
