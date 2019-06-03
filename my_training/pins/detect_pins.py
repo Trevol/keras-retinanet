@@ -26,14 +26,14 @@ class DetectionsCSVWriter:
         self.rowsCount = 0
 
     def write(self, framePos, detections):
-        box, label, score = detections
-        x1, y1, x2, y2 = box
-        row = f'{framePos},{x1},{y1},{x2},{y2},{label},{score}'
-        if self.rowsCount > 1:
-            self.file.write('\n')
-        self.file.write(row)
-
-        self.rowsCount += 1
+        for detection in detections:
+            box, label, score = detection
+            x1, y1, x2, y2 = box
+            row = f'{framePos},{x1},{y1},{x2},{y2},{label},{score}'
+            if self.rowsCount > 1:
+                self.file.write('\n')
+            self.file.write(row)
+            self.rowsCount += 1
 
     def close(self):
         self.file.flush()
