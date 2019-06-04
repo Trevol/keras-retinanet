@@ -30,7 +30,7 @@ class DetectionsCSVWriter:
             box, label, score = detection
             x1, y1, x2, y2 = box
             row = f'{framePos},{x1},{y1},{x2},{y2},{label},{score}'
-            if self.rowsCount > 1:
+            if self.rowsCount > 0:
                 self.file.write('\n')
             self.file.write(row)
             self.rowsCount += 1
