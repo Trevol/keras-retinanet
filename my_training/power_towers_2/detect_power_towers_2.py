@@ -22,11 +22,11 @@ def get_session():
 
 def main():
     keras.backend.tensorflow_backend.set_session(get_session())
-    model_path = './snapshots/inference_1_50.h5'
+    model_path = '/mnt/HDD/training_checkpoints/keras_retinanet/power_towers_2/inference_11.h5'
     model = models.load_model(model_path, backbone_name='resnet50')
 
     videoSource = cv2.VideoCapture('/mnt/HDD/10_кВ_Нахабино_CUT.avi')
-    # videoTarget = videoWriter(videoSource, '/mnt/HDD/10_кВ_Нахабино_CUT_detections.avi')
+    videoTarget = videoWriter(videoSource, '/mnt/HDD/10_кВ_Нахабино_CUT_detections.avi')
 
     while True:
         ret, frame = videoSource.read()
@@ -36,11 +36,18 @@ def main():
         image = putFramePos(image, videoSource.get(cv2.CAP_PROP_POS_FRAMES))
         # image = resize(image, .5)
         cv2.imshow('Video', image)
-        # videoTarget.write(image)
+        videoTarget.write(image)
         if cv2.waitKey(1) == 27:
             break
     videoSource.release()
-    # videoTarget.release()
+    videoTarget.release()
+
+
+blue = (255, 0, 0)
+red = (0, 0, 255)
+ankTowerLable = 0
+intmTowerLable = 1
+labelColors = {ankTowerLable: blue, intmTowerLable: red}
 
 
 def predict_on_image(model, image, thresh):
@@ -65,10 +72,7 @@ def predict_on_image(model, image, thresh):
         if score < thresh:
             break
 
-        if label == 0:  # intermediate tower
-            color = (255, 0, 0)
-        else: # anker tower
-            color = (0, 0, 255)
+        color = labelColors[label]
         b = np.round(box, 0).astype(int)
         draw_box(draw, b, color=color, thickness=1)
 
