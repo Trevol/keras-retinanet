@@ -126,17 +126,25 @@ def saveClassMapping(labels, csvFilePath):
 
 
 def main():
-    framesDir = 'data/frames'
-    annotations = ImageSetAnnotationsDump('data/18_PinsSelectiveAnnotation.xml')
+    framesDir = 'frames'
+    annotations = ImageSetAnnotationsDump('data/20_NahabinoTowers.xml')
 
     labelSet = annotations.labels()
 
     annotatedImages = list(annotations.annotatedImages())
-    trainItems = list(filter(lambda i: i[0] != 'f2_1763_117533.33_117.53.jpg', annotatedImages))
-    valItems = list(filter(lambda i: i[0] == 'f2_1763_117533.33_117.53.jpg', annotatedImages))
+    trainItems = list(filter(lambda i: i[0] != '016951.jpg', annotatedImages))
+    valItems = list(filter(lambda i: i[0] == '016951.jpg', annotatedImages))
 
-    trainItems.append(('f2_0031_2066.67_2.07.jpg', []))
-    valItems.append(('f2_0033_2200.00_2.20.jpg', []))
+    # negative samples
+    trainItems.extend([
+        ('005029_neg.jpg', []),
+        ('019860_neg.jpg', []),
+        ('020089_neg.jpg', [])
+    ])
+    valItems.extend([
+        ('009090_neg.jpg', []),
+        ('019861_neg.jpg', [])
+    ])
 
     saveCsv(trainItems, framesDir, 'data/train.csv')
     saveCsv(valItems, framesDir, 'data/val.csv')
