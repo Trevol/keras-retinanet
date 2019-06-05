@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <task>
+      <id>20</id>
+      <name>NahabinoTowers</name>
+      <size>46</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <flipped>False</flipped>
+      <created>2019-06-05 09:53:56.780356+03:00</created>
+      <updated>2019-06-05 10:42:36.194285+03:00</updated>
+      <labels>
+        <label>
+          <name>ank_tower</name>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>intm_tower</name>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+      <segments>
+        <segment>
+          <id>18</id>
+          <start>0</start>
+          <stop>45</stop>
+          <url>http://localhost:8080/?id=18</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>trevol</username>
+        <email>iamvovan@mail.ru</email>
+      </owner>
+    </task>
+    <dumped>2019-06-05 10:53:21.379740+03:00</dumped>
+  </meta>
+  <image id="0" name="010387.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="975.18" ytl="284.83" xbr="994.75" ybr="313.92">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="563.30" ytl="327.14" xbr="578.10" ybr="358.34">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="628.34" ytl="295.41" xbr="642.09" ybr="321.32">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="799.58" ytl="294.42" xbr="805.70" ybr="317.37">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="550.98" ytl="297.83" xbr="560.12" ybr="319.94">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="130.17" ytl="514.24" xbr="146.23" ybr="550.20">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="845.50" ytl="327.93" xbr="857.50" ybr="363.40">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="285.68" ytl="433.95" xbr="308.94" ybr="470.44">
+    </box>
+  </image>
+  <image id="1" name="010523.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="612.90" ytl="349.42" xbr="627.88" ybr="377.19">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="529.61" ytl="344.58" xbr="542.83" ybr="373.22">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="800.12" ytl="354.02" xbr="808.57" ybr="382.30">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="994.96" ytl="353.83" xbr="1014.79" ybr="383.36">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="538.43" ytl="381.59" xbr="552.97" ybr="418.61">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="220.27" ytl="494.80" xbr="243.62" ybr="536.22">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="47.69" ytl="574.72" xbr="64.21" ybr="615.85">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="851.30" ytl="399.66" xbr="864.08" ybr="442.85">
+    </box>
+  </image>
+  <image id="2" name="010625.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="600.61" ytl="370.07" xbr="617.14" ybr="402.02">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="802.62" ytl="377.67" xbr="810.70" ybr="402.28">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1013.74" ytl="368.97" xbr="1035.04" ybr="404.22">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="514.68" ytl="364.93" xbr="526.80" ybr="393.21">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="520.92" ytl="407.89" xbr="533.41" ybr="447.92">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="860.60" ytl="427.36" xbr="874.56" ybr="470.32">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="172.02" ytl="547.55" xbr="196.24" ybr="589.63">
+    </box>
+  </image>
+  <image id="3" name="010857.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="1149.47" ytl="396.30" xbr="1172.74" ybr="434.38">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="551.37" ytl="390.12" xbr="564.95" ybr="419.87">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="651.62" ytl="395.26" xbr="671.82" ybr="436.76">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="894.83" ytl="400.04" xbr="904.75" ybr="433.09">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="552.10" ytl="448.14" xbr="566.79" ybr="494.78">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="977.61" ytl="489.90" xbr="993.48" ybr="540.67">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="116.95" ytl="650.51" xbr="155.78" ybr="703.81">
+    </box>
+  </image>
+  <image id="4" name="011013.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1384.42" ytl="454.44" xbr="1394.11" ybr="487.93">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="412.19" ytl="557.47" xbr="444.07" ybr="608.98">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="0.00" ytl="669.41" xbr="22.35" ybr="718.33">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="170.20" ytl="619.97" xbr="194.95" ybr="669.47">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1107.18" ytl="389.87" xbr="1127.33" ybr="439.35">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="974.83" ytl="431.19" xbr="993.19" ybr="481.43">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="996.76" ytl="358.25" xbr="1011.55" ybr="393.95">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1655.77" ytl="512.43" xbr="1686.68" ybr="553.74">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1485.02" ytl="473.26" xbr="1495.11" ybr="497.74">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1460.84" ytl="605.15" xbr="1487.46" ybr="666.05">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="527.57" ytl="372.57" xbr="543.36" ybr="398.64">
+    </box>
+  </image>
+  <image id="5" name="011215.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1545.08" ytl="556.09" xbr="1559.55" ybr="585.02">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="953.51" ytl="322.66" xbr="972.61" ybr="355.34">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1418.76" ytl="572.20" xbr="1452.73" ybr="629.73">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="229.89" ytl="489.16" xbr="248.40" ybr="538.34">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1473.54" ytl="465.70" xbr="1497.71" ybr="510.38">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="404.39" ytl="504.50" xbr="424.49" ybr="560.02">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="682.21" ytl="527.86" xbr="710.37" ybr="589.73">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1585.35" ytl="554.01" xbr="1611.28" ybr="618.09">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1852.72" ytl="754.07" xbr="1880.21" ybr="798.23">
+    </box>
+  </image>
+  <image id="6" name="011377.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="287.42" ytl="398.26" xbr="300.11" ybr="434.22">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="524.32" ytl="486.57" xbr="542.30" ybr="552.14">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="369.92" ytl="428.40" xbr="387.90" ybr="480.22">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1821.89" ytl="668.18" xbr="1861.18" ybr="723.92">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1746.05" ytl="843.62" xbr="1816.41" ybr="917.63">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="234.54" ytl="377.11" xbr="248.29" ybr="410.95">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="825.42" ytl="591.59" xbr="858.74" ybr="680.95">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1264.33" ytl="362.14" xbr="1284.42" ybr="400.22">
+    </box>
+  </image>
+  <image id="7" name="011557.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="923.49" ytl="519.80" xbr="948.49" ybr="613.22">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="856.57" ytl="396.46" xbr="869.26" ybr="457.27">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="823.26" ytl="339.35" xbr="833.83" ybr="383.77">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1120.83" ytl="906.86" xbr="1165.25" ybr="1042.65">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="803.16" ytl="307.62" xbr="811.09" ybr="343.05">
+    </box>
+  </image>
+  <image id="8" name="011693.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="877.39" ytl="435.14" xbr="895.01" ybr="505.28">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="819.00" ytl="613.24" xbr="843.23" ybr="728.92">
+    </box>
+  </image>
+  <image id="9" name="011919.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="818.23" ytl="450.06" xbr="849.81" ybr="576.38">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1037.64" ytl="324.90" xbr="1049.02" ybr="369.70">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1069.22" ytl="306.91" xbr="1079.50" ybr="342.53">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="978.76" ytl="357.96" xbr="995.87" ybr="406.64">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="185.32" ytl="915.86" xbr="310.30" ybr="1080.00">
+    </box>
+  </image>
+  <image id="10" name="012129.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="944.26" ytl="376.57" xbr="964.09" ybr="485.27">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1046.34" ytl="311.20" xbr="1061.40" ybr="378.04">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1087.84" ytl="288.80" xbr="1101.06" ybr="333.24">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="373.48" ytl="754.02" xbr="491.91" ybr="1001.39">
+    </box>
+  </image>
+  <image id="11" name="012427.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="947.97" ytl="436.63" xbr="973.56" ybr="581.00">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1045.85" ytl="368.76" xbr="1054.77" ybr="430.73">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1028.00" ytl="384.57" xbr="1041.77" ybr="460.82">
+    </box>
+  </image>
+  <image id="12" name="012985.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1090.60" ytl="386.90" xbr="1112.97" ybr="467.17">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="734.02" ytl="732.96" xbr="810.34" ybr="1040.87">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1124.78" ytl="359.53" xbr="1132.86" ybr="403.23">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="984.02" ytl="484.28" xbr="1019.55" ybr="643.49">
+    </box>
+  </image>
+  <image id="13" name="013339.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1071.24" ytl="403.56" xbr="1085.56" ybr="465.62">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1006.98" ytl="518.13" xbr="1028.64" ybr="632.71">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1097.10" ytl="369.64" xbr="1104.11" ybr="411.45">
+    </box>
+  </image>
+  <image id="14" name="013561.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="884.74" ytl="771.07" xbr="932.25" ybr="962.96">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1056.16" ytl="434.39" xbr="1073.79" ybr="522.52">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1091.22" ytl="375.17" xbr="1103.34" ybr="429.89">
+    </box>
+  </image>
+  <image id="15" name="013993.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1080.88" ytl="367.67" xbr="1095.43" ybr="422.75">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1040.46" ytl="422.68" xbr="1062.54" ybr="528.52">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="705.07" ytl="948.76" xbr="790.60" ybr="1077.71">
+    </box>
+  </image>
+  <image id="16" name="014485.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1031.39" ytl="471.12" xbr="1066.92" ybr="626.38">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1112.81" ytl="365.17" xbr="1133.83" ybr="443.75">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1141.72" ytl="341.00" xbr="1147.84" ybr="385.06">
+    </box>
+  </image>
+  <image id="17" name="014643.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1104.26" ytl="383.77" xbr="1123.83" ybr="483.18">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="890.60" ytl="707.96" xbr="961.65" ybr="980.34">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1133.34" ytl="338.82" xbr="1145.50" ybr="395.40">
+    </box>
+  </image>
+  <image id="18" name="015085.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1109.14" ytl="369.53" xbr="1123.61" ybr="433.49">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1050.51" ytl="413.69" xbr="1071.83" ybr="536.29">
+    </box>
+  </image>
+  <image id="19" name="015325.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1093.58" ytl="400.19" xbr="1107.68" ybr="490.53">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="899.81" ytl="517.04" xbr="956.39" ybr="793.36">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1125.30" ytl="377.23" xbr="1135.00" ybr="429.23">
+    </box>
+  </image>
+  <image id="20" name="015661.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1136.56" ytl="398.32" xbr="1148.54" ybr="476.10">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1059.46" ytl="458.75" xbr="1095.04" ybr="664.40">
+    </box>
+  </image>
+  <image id="21" name="015865.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1046.02" ytl="405.39" xbr="1064.29" ybr="508.19">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="852.44" ytl="780.60" xbr="991.92" ybr="1080.00">
+    </box>
+  </image>
+  <image id="22" name="016217.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="919.51" ytl="390.74" xbr="953.29" ybr="457.54">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="636.84" ytl="382.19" xbr="648.80" ybr="434.36">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="752.79" ytl="385.97" xbr="775.19" ybr="447.66">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="823.33" ytl="505.71" xbr="875.42" ybr="806.34">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="904.31" ytl="422.84" xbr="919.73" ybr="540.06">
+    </box>
+  </image>
+  <image id="23" name="016357.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="808.48" ytl="381.76" xbr="850.56" ybr="459.11">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="541.12" ytl="785.20" xbr="665.50" ybr="1079.10">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1011.30" ytl="391.89" xbr="1043.74" ybr="473.29">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1186.96" ytl="387.61" xbr="1228.27" ybr="439.32">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="402.99" ytl="377.61" xbr="424.66" ybr="423.94">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="954.00" ytl="442.68" xbr="985.56" ybr="605.85">
+    </box>
+  </image>
+  <image id="24" name="016387.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="1193.15" ytl="390.91" xbr="1237.04" ybr="443.79">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="374.35" ytl="900.64" xbr="505.10" ybr="1080.00">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="940.48" ytl="448.09" xbr="976.54" ybr="623.88">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1010.19" ytl="394.56" xbr="1042.97" ybr="474.94">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="801.31" ytl="383.98" xbr="848.37" ybr="461.19">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="395.44" ytl="374.29" xbr="415.66" ybr="419.45">
+    </box>
+  </image>
+  <image id="25" name="016495.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="745.63" ytl="389.80" xbr="791.10" ybr="477.05">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1179.77" ytl="392.97" xbr="1226.83" ybr="448.50">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="974.60" ytl="398.26" xbr="1012.67" ybr="480.22">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="860.05" ytl="487.98" xbr="895.01" ybr="703.96">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="327.35" ytl="384.51" xbr="354.85" ybr="434.75">
+    </box>
+  </image>
+  <image id="26" name="016741.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="952.56" ytl="411.53" xbr="1014.62" ybr="551.81">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="506.42" ytl="421.93" xbr="526.34" ybr="514.32">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="222.89" ytl="416.67" xbr="250.80" ybr="474.69">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1220.26" ytl="380.32" xbr="1267.26" ybr="449.72">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1364.21" ytl="378.48" xbr="1378.53" ybr="403.08">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="863.86" ytl="417.44" xbr="888.20" ybr="545.45">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="444.66" ytl="828.52" xbr="589.80" ybr="1080.00">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="652.54" ytl="412.63" xbr="709.46" ybr="524.63">
+    </box>
+  </image>
+  <image id="27" name="016951.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="666.43" ytl="412.03" xbr="689.87" ybr="542.74">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1198.77" ytl="520.20" xbr="1269.82" ybr="771.52">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1069.39" ytl="511.19" xbr="1103.65" ybr="702.31">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="798.76" ytl="450.46" xbr="876.39" ybr="612.30">
+    </box>
+  </image>
+  <image id="28" name="017155.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="1223.50" ytl="910.60" xbr="1324.80" ybr="1080.00">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="915.60" ytl="542.17" xbr="981.39" ybr="756.65">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="787.08" ytl="340.82" xbr="798.31" ybr="399.87">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1073.90" ytl="763.61" xbr="1175.77" ybr="1019.63">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="863.89" ytl="436.46" xbr="884.54" ybr="582.46">
+    </box>
+  </image>
+  <image id="29" name="017335.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="977.44" ytl="433.67" xbr="1015.31" ybr="595.93">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="998.23" ytl="284.83" xbr="1026.79" ybr="341.94">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="952.20" ytl="623.88" xbr="1012.60" ybr="874.49">
+    </box>
+  </image>
+  <image id="30" name="017485.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1035.55" ytl="525.04" xbr="1086.31" ybr="754.12">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1085.79" ytl="292.99" xbr="1130.51" ybr="387.11">
+    </box>
+  </image>
+  <image id="31" name="017581.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="1080.28" ytl="302.50" xbr="1137.50" ybr="422.46">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1006.39" ytl="701.38" xbr="1103.76" ybr="1009.29">
+    </box>
+  </image>
+  <image id="32" name="017725.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="1102.17" ytl="332.20" xbr="1178.32" ybr="486.40">
+    </box>
+  </image>
+  <image id="33" name="017875.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="1105.03" ytl="385.31" xbr="1219.25" ybr="622.00">
+    </box>
+  </image>
+  <image id="34" name="017963.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="1131.54" ytl="423.29" xbr="1276.83" ybr="739.45">
+    </box>
+  </image>
+  <image id="35" name="018063.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="1191.92" ytl="451.38" xbr="1386.66" ybr="901.39">
+    </box>
+  </image>
+  <image id="36" name="018127.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1066.43" ytl="284.43" xbr="1082.59" ybr="404.88">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1026.77" ytl="261.30" xbr="1039.26" ybr="328.13">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="1390.61" ytl="550.07" xbr="1614.30" ybr="1077.71">
+    </box>
+  </image>
+  <image id="37" name="018291.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1033.71" ytl="280.74" xbr="1063.53" ybr="447.63">
+    </box>
+  </image>
+  <image id="38" name="018379.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1025.01" ytl="317.26" xbr="1071.28" ybr="549.49">
+    </box>
+  </image>
+  <image id="39" name="018511.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1107.71" ytl="456.64" xbr="1265.61" ybr="950.08">
+    </box>
+  </image>
+  <image id="40" name="018719.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="979.62" ytl="295.31" xbr="995.43" ybr="370.80">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="997.47" ytl="334.30" xbr="1034.91" ybr="517.05">
+    </box>
+  </image>
+  <image id="41" name="018863.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1107.33" ytl="387.28" xbr="1174.03" ybr="764.67">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="984.89" ytl="313.27" xbr="1007.27" ybr="408.94">
+    </box>
+  </image>
+  <image id="42" name="018979.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="997.76" ytl="321.95" xbr="1024.73" ybr="444.05">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="945.98" ytl="310.40" xbr="990.05" ybr="377.60">
+    </box>
+  </image>
+  <image id="43" name="019171.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="942.57" ytl="317.59" xbr="1001.32" ybr="410.87">
+    </box>
+    <box label="intm_tower" occluded="0" xtl="1041.13" ytl="355.11" xbr="1086.18" ybr="575.30">
+    </box>
+  </image>
+  <image id="44" name="019279.jpg" width="1920" height="1080">
+    <box label="intm_tower" occluded="0" xtl="1115.61" ytl="448.75" xbr="1205.08" ybr="801.39">
+    </box>
+    <box label="ank_tower" occluded="0" xtl="941.92" ytl="344.80" xbr="1014.29" ybr="454.01">
+    </box>
+  </image>
+  <image id="45" name="019439.jpg" width="1920" height="1080">
+    <box label="ank_tower" occluded="0" xtl="1401.70" ytl="422.37" xbr="1513.71" ybr="594.54">
+    </box>
+  </image>
+</annotations>
