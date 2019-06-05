@@ -37,7 +37,7 @@ def main():
     trainAnnotations, valAnnotations, classMapping = './data/train.csv', './data/val.csv', './data/class_mapping.csv'
 
     ret = train(trainAnnotations, classMapping, valAnnotations, batchSize=2,
-                snapshot=None,  # './snapshots/resnet50_csv_08.h5'
+                snapshot='/mnt/HDD/training_checkpoints/keras_retinanet/power_towers_2/resnet50_csv_01.h5',  # './snapshots/resnet50_csv_08.h5'
                 weights=None,  # '../../snapshots/resnet50_coco_best_v2.1.0.h5',
                 randomTransform=True)
 
