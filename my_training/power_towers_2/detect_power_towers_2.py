@@ -15,6 +15,9 @@ import time
 
 
 def get_session():
+    # gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.7)
+    # sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
+
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
     return tf.Session(config=config)
