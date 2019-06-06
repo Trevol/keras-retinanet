@@ -43,11 +43,18 @@ def main():
     videoTarget.release()
 
 
-blue = (255, 0, 0)
-red = (0, 0, 255)
-ankTowerLable = 0
-intmTowerLable = 1
-labelColors = {ankTowerLable: blue, intmTowerLable: red}
+class LabelColor:
+    blue = (255, 0, 0)
+    red = (0, 0, 255)
+    ankTowerLable = 0
+    intmTowerLable = 1
+    __labelColors = {ankTowerLable: blue, intmTowerLable: red}
+
+    def __call__(self, label):
+        return self.__labelColors[label]
+
+
+LabelColor = LabelColor()
 
 
 def predict_on_image(model, image, thresh):
@@ -72,7 +79,7 @@ def predict_on_image(model, image, thresh):
         if score < thresh:
             break
 
-        color = labelColors[label]
+        color = LabelColor(label)
         b = np.round(box, 0).astype(int)
         draw_box(draw, b, color=color, thickness=1)
 
