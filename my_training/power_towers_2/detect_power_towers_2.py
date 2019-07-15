@@ -15,21 +15,23 @@ import time
 
 
 def get_session():
-    # gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.7)
-    # sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
-
     config = tf.ConfigProto()
-    config.gpu_options.allow_growth = True
+    config.gpu_options.allow_growth = False
+    config.gpu_options.per_process_gpu_memory_fraction = 0.15
     return tf.Session(config=config)
 
 
 def main():
     keras.backend.tensorflow_backend.set_session(get_session())
     model_path = '/mnt/HDD/training_checkpoints/keras_retinanet/power_towers_2/inference_11.h5'
+
+    # Resnet depth, must be one of 18, 34, 50, 101, 152
     model = models.load_model(model_path, backbone_name='resnet50')
 
     videoSource = cv2.VideoCapture('/mnt/HDD/10_кВ_Нахабино_CUT.avi')
-    videoTarget = videoWriter(videoSource, '/mnt/HDD/10_кВ_Нахабино_CUT_detections.avi')
+
+    # videoTarget = videoWriter(videoSource, '/mnt/HDD/10_кВ_Нахабино_CUT_detections.avi')
+    videoTarget = None
 
     while True:
         ret, frame = videoSource.read()
@@ -37,13 +39,12 @@ def main():
             break
         image = predict_on_image(model, frame, thresh=0.5)
         image = putFramePos(image, videoSource.get(cv2.CAP_PROP_POS_FRAMES))
-        # image = resize(image, .5)
-        cv2.imshow('Video', image)
-        videoTarget.write(image)
-        if cv2.waitKey(1) == 27:
+        cv2.imshow('Video', resize(image, .5))
+        if videoTarget: videoTarget.write(image)
+        if cv2.waitKey() in (-1, 27):
             break
     videoSource.release()
-    videoTarget.release()
+    if videoTarget: videoTarget.release()
 
 
 class LabelColor:
